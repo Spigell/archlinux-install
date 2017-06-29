@@ -6,11 +6,3 @@ grub:
   type: efi
   target: /dev/sda
   partition: /dev/sda2
-packages:
-  - openssh
-  - sudo
-  - NetworkManager
-enable-services:
-  - ssh
-  - NetworkManager
-  

@@ -8,6 +8,6 @@ task-run "Install grub", "dev-archlinux-install", %(
     install => 'false',
   ),
   postinstall => %(
-    packages => ('openssh sudo networkmanager');
+    enable-services => ('sshd NetworkManager');
   )
 );

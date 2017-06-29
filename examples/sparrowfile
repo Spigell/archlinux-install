@@ -16,3 +16,5 @@ task-run "create main lv", "lvm", %(
 
 EVALFILE './install_main.pl6';
 EVALFILE './install_grub.pl6';
+EVALFILE './enable_services.pl6';
+EVALFILE './install_packages.pl6';
