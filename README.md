@@ -29,8 +29,23 @@ Add configuration in your config file (yaml, json or Config::General):
 
     $ sparrow task run archlinux/install
 
-There are some sparrowdo scenarios for bootstraping Archlinux here - 
 ## via sparrowdo
+
+    $ cat sparrowfile
+    task-run "Install Archlinux", "archlinux-install", %(
+      lvm   => %(
+        vg   => 'vg_main',
+        lv   => 'slashroot'
+      ),
+      grub  => %(
+        install => 'true',
+        type    => 'efi',
+        target  => '/dev/sda',
+        partition => '/dev/sda2',
+        debug   => '1',
+      )
+    );
+
 
 # Parameters
 
