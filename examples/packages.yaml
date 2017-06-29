@@ -1,0 +1,3 @@
+main:
+  install: false
+packages: sudo openssh networkmanager

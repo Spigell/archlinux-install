@@ -1,0 +1,3 @@
+main:
+  install: false
+enable-service: sshd NetworkManager
