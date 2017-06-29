@@ -29,6 +29,7 @@ Add configuration in your config file (yaml, json or Config::General):
 
     $ sparrow task run archlinux/install
 
+There are some sparrowdo scenarios for bootstraping Archlinux here - 
 ## via sparrowdo
 
 # Parameters

@@ -1,0 +1,4 @@
+main:
+  install: true
+grub:
+  install: false
