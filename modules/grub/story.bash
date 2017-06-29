@@ -1,6 +1,6 @@
 debug=$(config grub.debug)
 
-if [[ $debug ]] && set -x
+[[ $debug ]] && set -x
 
 grub_target=$(config grub.target)
 grub_type=$(config grub.type)
@@ -16,7 +16,7 @@ if [[ $grub_target ]]; then
 	  arch-chroot /mnt pacman -S --noconfirm efibootmgr
 	  mount $grub_partition /mnt/boot/efi
 	else
-	  echo "It seems your desired partition ( $grub_partition) is not a ESP. Check it."
+	  echo "It seems your desired partition ( $grub_partition ) is not a ESP. Check it."
 	  [[ -z $real_efi_partition ]] && echo "Your disk doesn't have ESP."
 	  exit 3
 	fi
