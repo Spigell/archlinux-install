@@ -1,0 +1,4 @@
+main:
+  install: false
+properties:
+  hostname: Arch-test

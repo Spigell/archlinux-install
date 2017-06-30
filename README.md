@@ -25,7 +25,9 @@ Add configuration in your config file (yaml, json or Config::General):
       install: true
       type: efi
       target: /dev/sda
-      partition: /dev/sda2
+    properties:
+      hostname: Arch-test
+      root-pass: koteika42
 
     $ sparrow task run archlinux/install
 
@@ -33,7 +35,7 @@ Add configuration in your config file (yaml, json or Config::General):
 
     $ cat sparrowfile
     task-run "Install Archlinux", "archlinux-install", %(
-      lvm   => %(
+      lvm    => %(
         vg   => 'vg_main',
         lv   => 'slashroot'
       ),
@@ -42,10 +44,8 @@ Add configuration in your config file (yaml, json or Config::General):
         type    => 'efi',
         target  => '/dev/sda',
         partition => '/dev/sda2',
-        debug   => '1',
       )
     );
-
 
 # Parameters
 
@@ -69,3 +69,19 @@ Your phisical disk for install grub.
 ### partition
 Your desired partition for install grub. For efi must be ESP type.
 No need for BIOS installation.
+
+## postinstall part
+### packages
+list of packages to install after installation. Separated by space. 
+*Note* It is not a array. Must be a string.
+
+### enable-services
+list of services (systemd units) to enable. Separated by space.
+*Note* It is not a array. Must be a string.
+
+## properties part
+### root-pass
+Your root password.
+
+### hostname
+Name of host.

@@ -1,4 +1,0 @@
-main:
-  install: false
-postinstall:
-  enable-service: sshd NetworkManager
