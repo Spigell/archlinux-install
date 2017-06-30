@@ -2,7 +2,7 @@
 
 Outthentic plugin.
 
-Since there is no official installer for Archlinux.
+Since there is no official installer for Archlinux user need install it manually. Such project as [Archfi](https://github.com/MatMoul/archfi/blob/master/archfi), [AUI](https://github.com/helmuthdu/aui) too much heavy and install OS in interactive mode, the script make automatic installation according your configs.
 
 # INSTALL
 
@@ -18,6 +18,9 @@ Add configuration in your config file (yaml, json or Config::General):
 
     $ sparrow task ini archlinux/install
 
+    properties:
+      hostname: Arch-test
+      root-pass: koteika42
     lvm:
       vg: vg_main
       lv: slashroot
@@ -25,9 +28,6 @@ Add configuration in your config file (yaml, json or Config::General):
       install: true
       type: efi
       target: /dev/sda
-    properties:
-      hostname: Arch-test
-      root-pass: koteika42
 
     $ sparrow task run archlinux/install
 
@@ -43,11 +43,18 @@ Add configuration in your config file (yaml, json or Config::General):
         install => 'true',
         type    => 'efi',
         target  => '/dev/sda',
-        partition => '/dev/sda2',
       )
     );
 
+For more examples see here - [Archlinux sparrowfiles](https://github.com/Spigell/sparrow-sparrowdo-examples/tree/master/archlinux_scenarios)
+
 # Parameters
+## properties part
+### root-pass
+Your root password.
+
+### hostname
+Name of host.
 
 ## lvm part
 ### vg
@@ -61,7 +68,7 @@ Your logical volume. It must be already created.
 One of two: (true|false). Default is `false`.
 
 ### type
-Supported type: efi.
+Supported types: efi.
 
 ### target
 Your phisical disk for install grub.
@@ -78,10 +85,3 @@ list of packages to install after installation. Separated by space.
 ### enable-services
 list of services (systemd units) to enable. Separated by space.
 *Note* It is not a array. Must be a string.
-
-## properties part
-### root-pass
-Your root password.
-
-### hostname
-Name of host.
