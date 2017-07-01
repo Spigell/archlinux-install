@@ -1,5 +1,6 @@
 my $disk = '/dev/sda';
  
+
 bash "parted $disk mklabel gpt";
 bash "parted $disk mkpart P1 2Mib 9Gib";
 bash "parted $disk set 1 lvm on";
