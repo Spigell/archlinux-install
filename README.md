@@ -2,7 +2,7 @@
 
 Outthentic plugin.
 
-Since there is no official installer for Archlinux user need install it manually. Such project as [Archfi](https://github.com/MatMoul/archfi/blob/master/archfi), [AUI](https://github.com/helmuthdu/aui) too much heavy and install OS in interactive mode, the script make automatic installation according your configs.
+Since there is no an official installer for Archlinux, user has to install it manually. Such project as [Archfi](https://github.com/MatMoul/archfi/blob/master/archfi), [AUI](https://github.com/helmuthdu/aui) are quite heavy and install OS in interactive mode, this script makes automatic installation according to your configs.
 
 # INSTALL
 
