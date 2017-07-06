@@ -1,6 +1,7 @@
 main_install=$(config main.install)
 root_pass=$(config system.root-pass)
 hostname=$(config system.hostname)
+timezone=$(config system.timezone)
 used_grub=$(config bootloader.grub.install)
 
 post_packages=$(config postinstall.packages)
@@ -22,6 +23,10 @@ fi
 
 if [[ "$root_pass" ]]; then
   run_story root_pass
+fi
+
+if [[ "$timezone" ]]; then
+  run_story timezone
 fi
 
 if [[ $post_packages ]]; then

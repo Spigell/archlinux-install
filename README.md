@@ -64,11 +64,16 @@ For more examples see here - [Archlinux sparrowfiles](https://github.com/Spigell
 
 # Parameters
 ## system part
+### hostname
+Name of host.
+
 ### root-pass
 Your root password.
 
-### hostname
-Name of host.
+### timezone
+TZ for host. Must be in format: *Zone/SubZone*.
+
+See list in Wiki - https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 ## disc part
 ### LVM
