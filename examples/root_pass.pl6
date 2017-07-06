@@ -7,7 +7,7 @@ task-run "set root pass", "dev-archlinux-install", %(
   grub  => %( 
     install => 'false',
   ),
-  properties => %(
+  system => %(
     root-pass => 'koteika42';
   )
 );

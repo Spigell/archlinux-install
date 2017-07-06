@@ -7,7 +7,7 @@ task-run "set hostname", "dev-archlinux-install", %(
   grub  => %( 
     install => 'false',
   ),
-  properties => %(
+  system => %(
     hostname => 'Arch-test';
   )
 );

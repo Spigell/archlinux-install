@@ -2,9 +2,9 @@ debug=$(config debug)
 
 [[ $debug ]] && set -x 
 
-raw_part=$(config disk.partition)
-lvm_vg=$(config lvm.vg)
-lvm_lv=$(config lvm.lv)
+raw_part=$(config disk.raw.partition)
+lvm_vg=$(config disk.lvm.vg)
+lvm_lv=$(config disk.lvm.lv)
 
 if [[ -n $raw_part ]] && [[ -n $lvm_vg ]]; then
   echo "Choose one. Raw partition (e.g. /dev/sda1) or lvm"

@@ -1,7 +1,7 @@
 main_install=$(config main.install)
-root_pass=$(config properties.root-pass)
-hostname=$(config properties.hostname)
-used_grub=$(config grub.install)
+root_pass=$(config system.root-pass)
+hostname=$(config system.hostname)
+used_grub=$(config bootloader.grub.install)
 
 post_packages=$(config postinstall.packages)
 post_enable_services=$(config postinstall.enable-services)
@@ -12,7 +12,7 @@ fi
 
 if [[ $used_grub == 'true' ]]; then
   run_story grub
-elif [[ $userd_grub == 'false' ]]; then
+elif [[ $used_grub == 'false' ]]; then
   echo "You must prepare your bootloader manually."
 fi
 

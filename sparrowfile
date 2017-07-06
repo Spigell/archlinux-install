@@ -1,6 +1,5 @@
 my $disk = '/dev/sda';
  
-
 bash "parted $disk mklabel gpt";
 bash "parted $disk mkpart P1 2Mib 9Gib";
 bash "parted $disk set 1 lvm on";
@@ -15,9 +14,9 @@ task-run "create main lv", "lvm", %(
   size      => '7GB'
 );
 
-EVALFILE './install_main.pl6';
-EVALFILE './install_grub.pl6';
-EVALFILE './set_hostname.pl6';
-EVALFILE './root_pass.pl6';
-EVALFILE './install_packages.pl6';
-EVALFILE './enable_services.pl6';
+EVALFILE 'examples/install_main.pl6';
+EVALFILE 'examples/install_grub.pl6';
+EVALFILE 'examples/set_hostname.pl6';
+EVALFILE 'examples/root_pass.pl6';
+EVALFILE 'examples/install_packages.pl6';
+EVALFILE 'examples/enable_services.pl6';

@@ -18,16 +18,18 @@ Add configuration in your config file (yaml, json or Config::General):
 
     $ sparrow task ini archlinux/install
 
-    properties:
+    system:
       hostname: Arch-test
       root-pass: koteika42
-    lvm:
-      vg: vg_main
-      lv: slashroot
-    grub:
-      install: true
-      type: efi
-      target: /dev/sda
+    disk:
+      lvm:
+        vg: vg_main
+        lv: slashroot
+    bootloader:
+      grub:
+        install: true
+        type: efi
+        target: /dev/sda
 
     $ sparrow task run archlinux/install
 
@@ -35,47 +37,63 @@ Add configuration in your config file (yaml, json or Config::General):
 
     $ cat sparrowfile
     task-run "Install Archlinux", "archlinux-install", %(
-      lvm    => %(
-        vg   => 'vg_main',
-        lv   => 'slashroot'
+      system => %( 
+        hostname => 'Arch',
       ),
-      grub  => %(
-        install => 'true',
-        type    => 'efi',
-        target  => '/dev/sda',
-      )
+      disk => %(
+        lvm  => %(
+          vg   => 'vg_main',
+          lv   => 'slashroot',
+        ),
+      ),
+      bootloader => %(
+        grub   => %(
+          install   => 'true',
+          type      => 'efi',
+          target    => '/dev/sda',
+          partition => '/dev/sda2',
+        ),
+      ),
+      postinstall => %(
+        packages        => ('openssh sudo networkmanager'),
+        enable-services => ('sshd NetworkManager dhcpcd'),
+      ),
     );
 
 For more examples see here - [Archlinux sparrowfiles](https://github.com/Spigell/sparrow-sparrowdo-examples/tree/master/archlinux_scenarios)
 
 # Parameters
-## properties part
+## system part
 ### root-pass
 Your root password.
 
 ### hostname
 Name of host.
 
-## lvm part
-### vg
+## disc part
+### LVM
+#### vg
 Your volume group. It must be already created.
 
-### lv
+#### lv
 Your logical volume. It must be already created.
 
-## grub part
-### install
+## bootloader part
+### GRUB
+#### install
 One of two: (true|false). Default is `false`.
 
-### type
-Supported types: efi.
+#### type
+Supported types: 
+ - efi
+ - bios
 
-### target
+#### target
 Your phisical disk for install grub.
 
-### partition
+#### partition
 Your desired partition for install grub. For efi must be ESP type.
-No need for BIOS installation.
+No need for `bios` installation.
 
 ## postinstall part
 ### packages
