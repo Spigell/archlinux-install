@@ -13,10 +13,10 @@ fi
 
 if [[ ! -n $lvm_vg ]] || [[ ! -n $lvm_lv ]]; then
   echo "I need volume group and logical volume"
-  exit 1
+  exit 2
 fi
 
-if [[  -n $lvm_vg ]] || [[  -n $lvm_lv ]]; then
+if [[  -n $lvm_vg ]] && [[  -n $lvm_lv ]]; then
   install_partition=/dev/mapper/${lvm_vg}-${lvm_lv}
   lvm_used='true'
 else
