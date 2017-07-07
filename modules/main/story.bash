@@ -3,23 +3,24 @@ debug=$(config debug)
 [[ $debug ]] && set -x 
 
 raw_part=$(config disk.raw.partition)
+lvm=$(config disk.lvm)
 lvm_vg=$(config disk.lvm.vg)
 lvm_lv=$(config disk.lvm.lv)
 
-if [[ -n $raw_part ]] && [[ -n $lvm_vg ]]; then
+if [[ $raw_part ]] && [[ $lvm ]]; then
   echo "Choose one. Raw partition (e.g. /dev/sda1) or lvm"
   exit 1
 fi
 
-if [[ ! -n $lvm_vg ]] || [[ ! -n $lvm_lv ]]; then
-  echo "I need volume group and logical volume"
-  exit 2
-fi
-
-if [[  -n $lvm_vg ]] && [[  -n $lvm_lv ]]; then
-  install_partition=/dev/mapper/${lvm_vg}-${lvm_lv}
-  lvm_used='true'
-else
+if [[ $lvm ]]; then
+  if [[ $lvm_vg ]] && [[ $lvm_lv ]]; then
+    install_partition=/dev/mapper/${lvm_vg}-${lvm_lv}
+    lvm_used='true'
+  elif [[ ! $lvm_vg ]] || [[ ! $lvm_lv ]]; then
+    echo "I need a volume group and a logical volume"
+    exit 2
+  fi
+elif [[ $raw_part ]]; then
   install_partition=$raw_part
 fi
 
