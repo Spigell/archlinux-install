@@ -112,3 +112,7 @@ list of packages to install after installation. Separated by space.
 ### enable-services
 list of services (systemd units) to enable. Separated by space.
 *Note* It is not a array. Must be a string.
+
+# See also
+[sparrowdo](https://github.com/melezhik/sparrowdo)
+[sparrow](https://github.com/melezhik/sparrow)
