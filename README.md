@@ -83,6 +83,10 @@ Your volume group. It must be already created.
 #### lv
 Your logical volume. It must be already created.
 
+### RAW
+#### partition
+/dev/sdaX
+
 ## bootloader part
 ### GRUB
 #### install
