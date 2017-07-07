@@ -5,7 +5,7 @@ timezone=$(config system.timezone)
 
 if [[ `find /mnt/usr/share/zoneinfo/$timezone` ]]; then 
   echo "Setting timezone..."
-  ln -sf /mnt/usr/share/zoneinfo/$timezone /mnt/etc/localtime
+  arch-chroot /mnt bash -c "ln -sf /usr/share/zoneinfo/$timezone /etc/localtime"
 else
   echo "Your timezone ( $timezone ) is unknown. Please check it."
   exit 10
