@@ -7,8 +7,8 @@ grub_type=$(config bootloader.grub.type)
 grub_partition=$(config bootloader.grub.partition)
 
 final_action () {
-  arch-chroot /mnt grub-install $grub_target || grub_exit_code=$?
-  if [[ ! $grub_exit_code == 0 ]]; then
+  arch-chroot /mnt grub-install $grub_target 
+  if [[ ! $? == 0 ]]; then
     echo "something wrong with installation of grub. Skipping..."
 	exit 5
   fi
