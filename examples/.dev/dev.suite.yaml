@@ -1,8 +1,0 @@
-lvm:
-  vg: vg_main
-  lv: slashroot
-grub:
-  install: true
-  type: efi
-  target: /dev/sda
-  partition: /dev/sda2

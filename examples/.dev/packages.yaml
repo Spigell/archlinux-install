@@ -1,4 +1,0 @@
-main:
-  install: false
-postinstall:
-  packages: sudo openssh networkmanager

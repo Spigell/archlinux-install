@@ -14,7 +14,7 @@ fi
 if [[ $used_grub == 'true' ]]; then
   run_story grub
 elif [[ $used_grub == 'false' ]]; then
-  echo "You must prepare your bootloader manually."
+  echo "You must prepare your bootloader (grub) manually."
 fi
 
 if [[ "$hostname" ]]; then
@@ -29,7 +29,7 @@ if [[ "$timezone" ]]; then
   run_story timezone
 fi
 
-if [[ $post_packages ]]; then
+if [[ "$post_packages" ]]; then
   run_story packages
 fi
 
