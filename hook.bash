@@ -3,12 +3,18 @@ root_pass=$(config system.root-pass)
 hostname=$(config system.hostname)
 timezone=$(config system.timezone)
 used_grub=$(config bootloader.grub.install)
-
+mount_table=$(config mount.table)
 post_packages=$(config postinstall.packages)
 post_enable_services=$(config postinstall.enable-services)
 
 if [[ $main_install == 'true' ]]; then
   run_story main
+fi
+
+if [[ "$mount_table" ]] || [[ $main_install == 'true' ]]; then
+  run_story mount_table
+else
+  echo "/etc/fstab will not be created..."
 fi
 
 if [[ $used_grub == 'true' ]]; then

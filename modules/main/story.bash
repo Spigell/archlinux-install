@@ -31,7 +31,6 @@ mkdir /mnt/boot
 
 pacstrap /mnt base
 
-genfstab -U /mnt > /mnt/etc/fstab
 
 if [[ $lvm_used == true ]] ;then
   MKINITCPIO_CONF=/mnt/etc/mkinitcpio.conf

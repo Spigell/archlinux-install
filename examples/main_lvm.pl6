@@ -1,5 +1,6 @@
-EVALFILE 'examples/prepare.pl6';
-EVALFILE 'examples/install_main.pl6';
+EVALFILE 'examples/prepare_lvm.pl6';
+EVALFILE 'examples/install_on_lvm.pl6';
+EVALFILE 'examples/mount_table.pl6';
 EVALFILE 'examples/install_grub.pl6';
 EVALFILE 'examples/set_hostname.pl6';
 EVALFILE 'examples/root_pass.pl6';
