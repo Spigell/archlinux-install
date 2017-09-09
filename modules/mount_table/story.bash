@@ -8,8 +8,8 @@ echo $mount_points
 for point in ${mount_table[@]}; do
   dev=$( echo $point | cut -f 1 -d ":" )
   mount_point=$( echo $point | cut -f 2 -d ":")
-  mkdir $mount_point
-  mount $dev /mnt/${mount_point} || exit 10  
+  mkdir /mnt${mount_point}
+  mount $dev /mnt${mount_point} || exit 10  
   echo "$dev mounted in /mnt${mount_point}"
 done
 
