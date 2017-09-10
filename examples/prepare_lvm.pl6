@@ -12,6 +12,9 @@ task-run "create main lv", "lvm", %(
   vg        => 'vg_main',
   lv        => 'slashroot',
   size      => '7GB',
+  fs        => %(
+	type => 'xfs'
+  ),
 );
 
 task-run "create home lv", "lvm", %(

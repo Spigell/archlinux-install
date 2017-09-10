@@ -23,7 +23,6 @@ elif [[ $raw_part ]]; then
   install_partition=$raw_part
 fi
 
-mkfs.ext4 $install_partition
 mount $install_partition /mnt
 
 mkdir /mnt/boot

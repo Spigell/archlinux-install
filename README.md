@@ -85,15 +85,16 @@ default locale for host. Generates locale and set LANG environment.
 See supported in `/etc/locale.gen`.
 
 ## disc part
+All partitions and lvm volumes must be created and contains filesystem.
 ### partition
 /dev/sdaX
 
 ### LVM
 #### vg
-Your volume group. It must be already created.
+Your volume group.
 
 #### lv
-Your logical volume. It must be already created.
+Your logical volume.
 
 ## bootloader part
 ### GRUB
@@ -121,14 +122,14 @@ list of services (systemd units) to enable. Separated by comma.
 ### table
 list of partitions and mount points for generating /etc/fstab. Separated by comma.
 Format:
-```
+
     mount => %(
       table => (
         '/dev/mapper/vg_main-home:/home/',
         '/dev/mapper/vg_main-spigell:/home/spigell'
       )
     )
-``` 
+ 
 
 
 # See also
