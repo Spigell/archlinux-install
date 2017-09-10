@@ -60,7 +60,7 @@ Add configuration in your config file (yaml, json or Config::General):
       packages => %(
         installed  => ('openssh', 'sudo', 'networkmanager'),
       ),
-      sevices => %(
+      services => %(
         enabled => ('sshd', 'NetworkManager', 'dhcpcd'),
     );
 
