@@ -17,7 +17,7 @@ else
   echo "/etc/fstab will not be created..."
 fi
 
-if [[ $used_grub == 'true' ]]; then
+if [[ "$used_grub" ]]; then
   run_story grub
 else 
   echo "You must prepare your bootloader manually."

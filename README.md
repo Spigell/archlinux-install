@@ -117,6 +117,8 @@ Format:
       table => (
         '/dev/mapper/vg_main-home:/home/',
         '/dev/mapper/vg_main-spigell:/home/spigell'
+      )
+    )
 ``` 
 
 
