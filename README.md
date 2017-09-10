@@ -62,6 +62,7 @@ Add configuration in your config file (yaml, json or Config::General):
       ),
       services => %(
         enabled => ('sshd', 'NetworkManager', 'dhcpcd'),
+      )
     );
 
 For more examples see here - [Archlinux sparrowfiles](https://github.com/Spigell/sparrow-sparrowdo-examples/tree/master/archlinux_scenarios)
