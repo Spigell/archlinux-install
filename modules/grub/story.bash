@@ -1,5 +1,4 @@
-debug=$(config bootloader.grub.debug)
-
+debug=$(config debug)
 [[ $debug ]] && set -x
 
 grub_target=$(config bootloader.grub.target)

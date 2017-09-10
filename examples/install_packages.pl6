@@ -4,7 +4,8 @@ task-run "Install packages", "dev-archlinux-install", %(
   main   => %( 
     install => 'false',
   ),
-  postinstall => %(
-    packages => ('openssh sudo networkmanager');
-  )
+    packages => %(
+	installed => ( 'openssh', 'sudo', 'networkmanager' )
+  ),
+  debug => 'true'
 );

@@ -1,7 +1,7 @@
 debug=$(config debug)
 [[ $debug ]] && set -x
 
-timezone=$(config system.timezone)
+timezone=$(config timezone)
 
 if [[ `find /mnt/usr/share/zoneinfo/$timezone` ]]; then 
   echo "Setting timezone..."

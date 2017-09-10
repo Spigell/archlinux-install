@@ -1,5 +1,2 @@
 main:
   install: true
-bootstrap:
-  grub:
-    install: false

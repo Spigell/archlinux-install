@@ -4,10 +4,8 @@ task-run "enable services", "dev-archlinux-install", %(
   main   => %( 
     install => 'false',
   ),
-  grub  => %( 
-    install => 'false',
+  services => %(
+    enabled => ( 'sshd', 'NetworkManager' )
   ),
-  postinstall => %(
-    enable-services => ('sshd NetworkManager');
-  )
+  debug => 'true'
 );

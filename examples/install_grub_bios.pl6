@@ -6,7 +6,6 @@ task-run "Install grub", "dev-archlinux-install", %(
   ),
   bootloader => %(
     grub  => %( 
-      install => 'true',
       type    => 'bios',
       target  => '/dev/sda',
       partition => '/dev/sda2',

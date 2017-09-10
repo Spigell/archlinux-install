@@ -1,8 +1,8 @@
 debug=$(config debug)
 [[ $debug ]] && set -x
 
-packages=$(config postinstall.packages)
+declare -a install_packages=$(config packages.installed)
 
-for package in $packages; do
+for package in ${install_packages[@]}; do
   arch-chroot /mnt pacman -S --noconfirm $package
 done

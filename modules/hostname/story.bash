@@ -1,6 +1,6 @@
 debug=$(config debug)
 [[ $debug ]] && set -x
 
-hostname=$(config system.hostname)
+hostname=$(config hostname)
 
 arch-chroot /mnt /bin/bash -c "echo $hostname > /etc/hostname"

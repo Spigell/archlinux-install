@@ -4,6 +4,8 @@ Outthentic plugin.
 
 Since there is no an official installer for Archlinux, user has to install it manually. Such project as [Archfi](https://github.com/MatMoul/archfi/blob/master/archfi), [AUI](https://github.com/helmuthdu/aui) are quite heavy and install OS in interactive mode, this script makes automatic installation according to your configuration.
 
+Inspired by kickstart for RH-like OS.
+
 # INSTALL
 
     $ sparrow plg install archlinux-install
@@ -18,9 +20,8 @@ Add configuration in your config file (yaml, json or Config::General):
 
     $ sparrow task ini archlinux/install
 
-    system:
-      hostname: Arch-test
-      root-pass: koteika42
+    hostname: Arch-test
+    rootpw: koteika42
     disk:
       lvm:
         vg: vg_main
@@ -30,6 +31,7 @@ Add configuration in your config file (yaml, json or Config::General):
         install: true
         type: efi
         target: /dev/sda
+        partition: /dev/sda2
 
     $ sparrow task run archlinux/install
 
@@ -37,9 +39,7 @@ Add configuration in your config file (yaml, json or Config::General):
 
     $ cat sparrowfile
     task-run "Install Archlinux", "archlinux-install", %(
-      system => %( 
-        hostname => 'Arch',
-      ),
+      hostname => 'Arch',
       disk => %(
         lvm  => %(
           vg   => 'vg_main',
@@ -54,20 +54,20 @@ Add configuration in your config file (yaml, json or Config::General):
           partition => '/dev/sda2',
         ),
       ),
-      postinstall => %(
-        packages        => ('openssh sudo networkmanager'),
-        enable-services => ('sshd NetworkManager dhcpcd'),
+      packages => %(
+        installed  => ('openssh', 'sudo', 'networkmanager'),
       ),
+      sevices => %(
+        enabled => ('sshd', 'NetworkManager', 'dhcpcd'),
     );
 
 For more examples see here - [Archlinux sparrowfiles](https://github.com/Spigell/sparrow-sparrowdo-examples/tree/master/archlinux_scenarios)
 
 # Parameters
-## system part
 ### hostname
 Name of host.
 
-### root-pass
+### rootpw
 Your root password.
 
 ### timezone
@@ -76,6 +76,9 @@ TZ for host. Must be in format: *Zone/SubZone*.
 See list in Wiki - https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 ## disc part
+### partition
+/dev/sdaX
+
 ### LVM
 #### vg
 Your volume group. It must be already created.
@@ -83,37 +86,39 @@ Your volume group. It must be already created.
 #### lv
 Your logical volume. It must be already created.
 
-### RAW
-#### partition
-/dev/sdaX
-
 ## bootloader part
 ### GRUB
-#### install
-One of two: (true|false). Default is `false`.
-
 #### type
 Supported types: 
  - efi
  - bios
 
 #### target
-Your phisical disk for install grub.
+Your phisical disk for installing grub.
 
 #### partition
-Your desired partition for install grub. For efi must be ESP type.
+Your desired partition for install grub. For `efi` must be ESP type.
 No need for `bios` installation.
 
-## postinstall part
-### packages
-list of packages to install after installation. Separated by space. 
+## packages
+### installed
+list of packages to install after installation. Separated by comma. 
 
-*Note* It is not a array. Must be a string.
+## services
+### enabled
+list of services (systemd units) to enable. Separated by comma.
 
-### enable-services
-list of services (systemd units) to enable. Separated by space.
+## mount
+### table
+list of partitions and mount points for generating /etc/fstab. Separated by comma.
+Format:
+```
+    mount => %(
+      table => (
+        '/dev/mapper/vg_main-home:/home/',
+        '/dev/mapper/vg_main-spigell:/home/spigell'
+``` 
 
-*Note* It is not a array. Must be a string.
 
 # See also
 [sparrowdo](https://github.com/melezhik/sparrowdo)

@@ -2,7 +2,7 @@ debug=$(config debug)
 
 [[ $debug ]] && set -x 
 
-raw_part=$(config disk.raw.partition)
+raw_part=$(config disk.partition)
 lvm=$(config disk.lvm)
 lvm_vg=$(config disk.lvm.vg)
 lvm_lv=$(config disk.lvm.lv)
@@ -30,7 +30,6 @@ mount $install_partition /mnt
 mkdir /mnt/boot
 
 pacstrap /mnt base
-
 
 if [[ $lvm_used == true ]] ;then
   MKINITCPIO_CONF=/mnt/etc/mkinitcpio.conf

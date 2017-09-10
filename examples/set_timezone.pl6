@@ -4,8 +4,5 @@ task-run "set hostname", "dev-archlinux-install", %(
   main   => %( 
     install => 'false',
   ),
-  grub  => %( 
-    install => 'false',
-  ),
-  hostname => 'Arch-test';
+  timezone => 'Atlantic/Madeira';
 );

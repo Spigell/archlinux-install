@@ -1,11 +1,11 @@
 main_install=$(config main.install)
-root_pass=$(config system.root-pass)
-hostname=$(config system.hostname)
-timezone=$(config system.timezone)
-used_grub=$(config bootloader.grub.install)
+root_pass=$(config rootpw)
+hostname=$(config hostname)
+timezone=$(config timezone)
+used_grub=$(config bootloader.grub)
 mount_table=$(config mount.table)
-post_packages=$(config postinstall.packages)
-post_enable_services=$(config postinstall.enable-services)
+used_packages=$(config packages)
+used_services=$(config services)
 
 if [[ $main_install == 'true' ]]; then
   run_story main
@@ -19,8 +19,8 @@ fi
 
 if [[ $used_grub == 'true' ]]; then
   run_story grub
-elif [[ $used_grub == 'false' ]]; then
-  echo "You must prepare your bootloader (grub) manually."
+else 
+  echo "You must prepare your bootloader manually."
 fi
 
 if [[ "$hostname" ]]; then
@@ -35,10 +35,10 @@ if [[ "$timezone" ]]; then
   run_story timezone
 fi
 
-if [[ "$post_packages" ]]; then
+if [[ "$used_packages" ]]; then
   run_story packages
 fi
 
-if [[ "$post_enable_services" ]]; then
-  run_story enable-services
+if [[ "$used_services" ]]; then
+  run_story services
 fi
