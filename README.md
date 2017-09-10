@@ -40,6 +40,9 @@ Add configuration in your config file (yaml, json or Config::General):
     $ cat sparrowfile
     task-run "Install Archlinux", "archlinux-install", %(
       hostname => 'Arch',
+      locales => %(
+        default => 'zh_SG.UTF-8 UTF-8'
+      ),
       disk => %(
         lvm  => %(
           vg   => 'vg_main',
@@ -74,6 +77,12 @@ Your root password.
 TZ for host. Must be in format: *Zone/SubZone*.
 
 See list in Wiki - https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+
+### locales
+#### default
+default locale for host. Generates locale and set LANG environment.
+
+See supported in `/etc/locale.gen`.
 
 ## disc part
 ### partition

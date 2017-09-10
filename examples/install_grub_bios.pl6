@@ -8,7 +8,6 @@ task-run "Install grub", "dev-archlinux-install", %(
     grub  => %( 
       type    => 'bios',
       target  => '/dev/sda',
-      partition => '/dev/sda2',
 	),
   ),
 );

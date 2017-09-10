@@ -6,6 +6,7 @@ used_grub=$(config bootloader.grub)
 mount_table=$(config mount.table)
 used_packages=$(config packages)
 used_services=$(config services)
+used_locales=$(config locales)
 
 if [[ $main_install == 'true' ]]; then
   run_story main
@@ -33,6 +34,10 @@ fi
 
 if [[ "$timezone" ]]; then
   run_story timezone
+fi
+
+if [[ "$used_locales" ]]; then
+  run_story locales
 fi
 
 if [[ "$used_packages" ]]; then

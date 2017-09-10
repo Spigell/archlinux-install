@@ -1,5 +1,4 @@
 debug=$(config debug)
-
 [[ $debug ]] && set -x 
 
 raw_part=$(config disk.partition)
