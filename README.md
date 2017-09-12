@@ -111,6 +111,8 @@ Your phisical disk for installing grub.
 Your desired partition for install grub. For `efi` must be ESP type.
 No need for `bios` installation.
 
+Remember: for efi installation you must create fat32 parition with `boot` flag. For bios installation on gpt partition with `bios_grub` flags must be exists.
+
 ## packages
 ### installed
 list of packages to install after installation. Separated by comma. 
