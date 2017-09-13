@@ -6,6 +6,8 @@ Since there is no an official installer for Archlinux, user has to install it ma
 
 Inspired by kickstart for RH-like OS.
 
+There is video for installingb by the plugin - [click](https://www.youtube.com/watch?v=fEuBmVjCiCg&t=571s)
+
 # INSTALL
 
     $ sparrow plg install archlinux-install
