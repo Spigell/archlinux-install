@@ -1,6 +1,6 @@
 {
   "name" : "archlinux-install",
-  "version" : "0.3.0",
+  "version" : "0.3.1",
   "description" : "install archlinux",
   "category" : "misc",
   "url" : "https://github.com/Spigell/archlinux-install"
