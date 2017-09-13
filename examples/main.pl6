@@ -1,3 +1,4 @@
+EVALFILE 'examples/mirrorlist.pl6';
 EVALFILE 'examples/prepare_raw.pl6';
 EVALFILE 'examples/install.pl6';
 EVALFILE 'examples/install_grub.pl6';

@@ -43,6 +43,9 @@ Add configuration in your config file (yaml, json or Config::General):
       locales => %(
         default => 'zh_SG.UTF-8 UTF-8'
       ),
+      mirrorlist => %(
+        servers => ( 'http://mirror.yandex.ru/archlinux/$repo/os/$arch' )
+      ),
       disk => %(
         lvm  => %(
           vg   => 'vg_main',
@@ -84,6 +87,12 @@ See list in Wiki - https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 default locale for host. Generates locale and set LANG environment.
 
 See supported in `/etc/locale.gen`.
+
+### mirrorlist
+#### servers
+list of mirrors for downloading packages. Rewrites an old one in arhiso and will be copy to new system.
+
+May increase speed of installation.
 
 ## disc part
 All partitions and lvm volumes must be created and contains filesystem.

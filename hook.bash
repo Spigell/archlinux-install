@@ -7,6 +7,11 @@ mount_table=$(config mount.table)
 used_packages=$(config packages)
 used_services=$(config services)
 used_locales=$(config locales)
+used_mirrorlist=$(config mirrorlist)
+
+if [[ $used_mirrorlist ]]; then
+  run_story mirrorlist
+fi
 
 if [[ $main_install == 'true' ]]; then
   run_story main

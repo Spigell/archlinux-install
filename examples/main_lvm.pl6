@@ -1,4 +1,5 @@
 EVALFILE 'examples/prepare_lvm.pl6';
+EVALFILE 'examples/mirrorlist.pl6';
 EVALFILE 'examples/install_on_lvm.pl6';
 EVALFILE 'examples/install_grub.pl6';
 EVALFILE 'examples/set_hostname.pl6';
