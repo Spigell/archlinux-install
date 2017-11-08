@@ -33,7 +33,7 @@ if [[ $lvm_used == true ]] ;then
   MKINITCPIO_CONF=/mnt/etc/mkinitcpio.conf
   hooks=$(grep '^HOOKS=' $MKINITCPIO_CONF)
   if [[ ! `echo $hooks | grep lmv2` ]]; then
-  sed -i.bak '/^HOOKS=/ s/\"$/ lvm2\"/' $MKINITCPIO_CONF 
+  sed -i.bak '/^HOOKS=/ s)"$/ lvm2)/' $MKINITCPIO_CONF 
   arch-chroot /mnt /bin/bash -c "mkinitcpio -p linux"
   fi
 fi
